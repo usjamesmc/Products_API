@@ -27,8 +27,8 @@ def product_detail(request, pk):
             return Response(serializer.data)
         elif request.method == 'PUT':
             serializer = ProductSerializer(product, data = request.data)
-            serializer.save()
             serializer.is_valid(raise_exception = True)
+            serializer.save()
             return Response(serializer.data)
         elif request.method == 'DELETE':
             product.delete()
